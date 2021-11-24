@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class KrogerCouponClipper {
 
@@ -34,6 +36,22 @@ public class KrogerCouponClipper {
         emailAddressBox.sendKeys(emailAddress);
         passwordBox.sendKeys(password);
         signInButton.click();
+
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div[3]/div[1]/main/section/div/section[1]/div[3]/div/div/div[2]")));
+
+        WebElement couponsClipped = driver.findElement(By.xpath("/html/body/div[1]/div/div[3]/div[1]/main/section/div/section[1]/div[3]/div/div/div[2]"));
+        int currentNumberOfCouponsClipped = Integer.parseInt(couponsClipped.getText());
+
+        final int MAX_NUMBER_OF_COUPONS = 150;
+
+        while(currentNumberOfCouponsClipped != MAX_NUMBER_OF_COUPONS) {
+            WebElement clipButton = driver.findElement(By.xpath("//button[text()='Clip']"));
+            String clipButtonText = clipButton.getText();
+            clipButton.click();
+            currentNumberOfCouponsClipped++;
+        }
+        
         driver.close();
     }
 }
