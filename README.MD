@@ -23,7 +23,6 @@ git clone https://github.com/suada-a/kroger-coupon-clipper.git
 5). Go to the project folder:
 ```
 cd */kroger-coupon-clipper
-
 ```
 6). Replace the text 'email' and 'password' with your kroger login information, then enter the command to run the program:
 ```
