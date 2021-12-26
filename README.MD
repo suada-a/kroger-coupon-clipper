@@ -28,3 +28,9 @@ cd */kroger-coupon-clipper
 ```
 mvn exec:java -Dexec.mainClass=org.example.KrogerCouponClipper -Dexec.args="email password"
 ```
+
+## Demonstration
+
+![kroger-coupon-clipper-demonstration](https://user-images.githubusercontent.com/36940887/147415500-4bb7974b-21cd-4742-9057-9a6767f70b95.gif)
+
+
